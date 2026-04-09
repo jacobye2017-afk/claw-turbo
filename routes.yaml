@@ -1,0 +1,37 @@
+routes:
+  - name: print-container-all
+    description: "打印柜号全部资料"
+    patterns:
+      - '打印\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*(资料|全部|所有)'
+      - 'print\s+(?P<container>[A-Z]{4}\d{7})'
+    command: 'bash /Users/ye/.openclaw/workspace/skills/melko-fba-files-print/scripts/run.sh "{{raw_message}}"'
+    response_template: "已执行打印 {{container}} 全部资料"
+
+  - name: print-container-packing
+    description: "只打印 packing list"
+    patterns:
+      - '(?:只)?打印\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*packing\s*list'
+    command: 'bash /Users/ye/.openclaw/workspace/skills/melko-fba-files-print/scripts/run.sh "{{raw_message}}"'
+    response_template: "已执行打印 {{container}} 的 Packing List"
+
+  - name: print-container-mark
+    description: "只打印柜号唛头"
+    patterns:
+      - '(?:只)?打印\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*(柜号)?\s*(唛头|嘜头|mark)'
+    command: 'bash /Users/ye/.openclaw/workspace/skills/melko-fba-files-print/scripts/run.sh "{{raw_message}}"'
+    response_template: "已执行打印 {{container}} 的柜号唛头"
+
+  - name: print-container-trucking
+    description: "只打印 trucking"
+    patterns:
+      - '(?:只)?打印\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*trucking'
+    command: 'bash /Users/ye/.openclaw/workspace/skills/melko-fba-files-print/scripts/run.sh "{{raw_message}}"'
+    response_template: "已执行打印 {{container}} 的 TRUCKING"
+
+  - name: print-container-label
+    description: "只打印 label"
+    patterns:
+      - '(?:只)?打印\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*label'
+      - '(?:生成|打印)\s*(?P<container>[A-Z]{4}\d{7})\s*(的)?\s*(pallet\s*)?label'
+    command: 'bash /Users/ye/.openclaw/workspace/skills/melko-fba-files-print/scripts/run.sh "{{raw_message}}"'
+    response_template: "已执行打印 {{container}} 的 Pallet Labels"
