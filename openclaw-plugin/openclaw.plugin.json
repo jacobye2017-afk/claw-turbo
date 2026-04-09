@@ -1,0 +1,25 @@
+{
+  "id": "claw-turbo",
+  "name": "claw-turbo",
+  "description": "Zero-latency regex skill router — intercepts known commands before LLM inference",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "routesPath": {
+        "type": "string",
+        "description": "Path to routes.yaml file. Defaults to ~/.openclaw/claw-turbo/routes.yaml"
+      },
+      "enabled": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable/disable claw-turbo interception"
+      },
+      "logMatches": {
+        "type": "boolean",
+        "default": true,
+        "description": "Log matched routes to console"
+      }
+    }
+  }
+}
